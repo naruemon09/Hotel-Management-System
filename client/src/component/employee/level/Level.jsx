@@ -1,20 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 const Level = () => {
 
-    const [level , setLevel] = useState("")
+    const location = useLocation();
+    const val = location.state.val;
+
+    const [level , setLevel] = useState(null)
 
     const [user , setUser] = useState([])
 
     useEffect(() => {
         const getLevel = async () => {
             try {
+              if (level == "") {
+                setLevel(null)
+              }
                 const response = await axios.get(`http://localhost:3000/level`, { params: {level} })
-                if (response.data.res === 0) {
-                    console.log("get Level :", response);
-                    setUser(response.data.level);
-                }
+                console.log("Level :", level)
+                console.log("get Level :", response)
+                setUser(response.data.level);
             } catch (error) {
                 alert("Failed to get level")
             }
@@ -24,7 +30,8 @@ const Level = () => {
     );
 
   return (
-    <div className='container-l' style={{marginTop:'1rem'}}>
+    <div className='body-x'>
+    <div className='container-list'>
         <select className='input-x' name='level' value={level} onChange={(e) => setLevel(e.target.value)}>
             <option value="">--Select--</option>
             <option value="Normal">Normal</option>
@@ -60,6 +67,7 @@ const Level = () => {
         </tbody>
       </table>
         
+    </div>
     </div>
   )
 }

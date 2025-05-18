@@ -26,7 +26,7 @@ import WalkIn from './component/employee/checkIn/walkIn/WalkIn'
 import DetailWalkIn from './component/employee/checkIn/detailWalkIn/DetailWalkIn'
 import DetailBookings from './component/customer/detailBooking/DetailBookings'
 import CancelBooking from './component/customer/cancelBooking/CancelBooking'
-import Level from './component/customer/level/level'
+import Level from './component/employee/level/Level'
 
 function App() {
 
@@ -44,6 +44,7 @@ function App() {
             <Route path="/editEmployee" element={<EditEmployee/>} />
             <Route path="/customers" element={<ListCustomer/>} />
             <Route path="/customers/:id_card" element={<DetailCustomer/>} />
+            <Route path="/level" element={<Level/>} />
             <Route path="/bookings" element={<ListBooking/>} />
             <Route path="/bookings/:booking_id" element={<DetailBooking/>} />
             <Route path="/walkIn" element={<WalkIn/>} />
@@ -60,7 +61,6 @@ function App() {
           {/* Customer */}
           <Route path="/" element={<SignIn/>} />
           <Route path="/signUp" element={<SignUp/>} />
-          <Route path="/level" element={<Level/>} />
           <Route element={<LayoutUser/>}>
             <Route path="/bookroom" element={<Rooms/>} />
             <Route path="/profile" element={<Profile/>} />

@@ -1697,9 +1697,29 @@ app.get('/level' , async (req, res) => {
     const level = req.query.level
     try {
         if(level == null) {
+            const [levelCus] = await connection.query(
+                `SELECT c.*, 
+                    (
+                        SELECT 
+                            IFNULL(	SUM(DISTINCT b.total_price) + 
+                                    SUM(IFNULL(ci.damage_fee, 0)) + 
+                                    SUM(IFNULL(ci.late_checkOut_fee, 0)),0)
+                        FROM booking b
+                        LEFT JOIN checkin ci ON ci.booking_id = b.booking_id
+                        WHERE b.id_card = c.id_card AND b.booking_status = 'Paid'
+                    ) +
+                    (
+                        SELECT 
+                            IFNULL(	SUM(IFNULL(ci.room_charge,0)) + 
+                                    SUM(IFNULL(ci.damage_fee, 0)) + 
+                                    SUM(IFNULL(ci.late_checkOut_fee, 0)),0)
+                        FROM checkin ci
+                        WHERE ci.id_card = c.id_card AND ci.booking_id IS NULL
+                    ) AS amount
+                FROM customer c`)
             res.json({
-                res: 1,
-                level: ''
+                res: 0,
+                level: levelCus
             })
         } else {
             const [levelUser] = await connection.query(
@@ -1725,11 +1745,11 @@ app.get('/level' , async (req, res) => {
                 WHERE c.level = ?` , [level])
 
             res.json({
-                res: 0,
+                res: 1,
                 level: levelUser
             })
         }
-        
+           
     } catch (error) {
         res.json({
             res:-1,

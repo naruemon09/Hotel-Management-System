@@ -5,7 +5,7 @@ import { useLocation , Link } from 'react-router-dom';
 const Sidebar = () => {
 
   const location = useLocation();
-  const val = location.state?.val;
+  const val = location.state.val;
   console.log('Sidebar : ',val)
 
   return (
@@ -17,6 +17,8 @@ const Sidebar = () => {
         <ul>
           <li><Link to="/employees" state={{ val }}>Employee</Link></li>
           <li><Link to="/customers" state={{ val }}>Customers</Link></li>
+          <li><Link to="/level" state={{ val }}>Level User</Link></li>
+          
         </ul>
         <header className="section">
           <h2>Manage Room</h2>

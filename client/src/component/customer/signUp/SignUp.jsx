@@ -32,7 +32,6 @@ const SignUp = () => {
   return (
     <div className='singup-body'>
       <div className='container'>
-        <Link to='/level'>Level User</Link>
         <h1>Sign Up</h1>
         <form>
           <label>ID Card</label>

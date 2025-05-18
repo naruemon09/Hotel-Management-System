@@ -1,0 +1,90 @@
+.body-x {
+	padding-left:240px;
+}
+
+.container-list {
+    background-color: white;
+    width: 1210px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    margin-top: 5rem;
+}
+
+.h1-list {
+    font-size: 1.5em;
+    line-height: 1.1;
+    color: #997E49;
+    text-align: start;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: system-ui;
+    background-color: #997E49;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+
+a {
+    font-size: 20px;
+    text-align: center;
+    font-family: system-ui;
+    line-height: 1.1;
+    color: gray;
+    text-decoration: inherit;
+}
+
+.btn-icon-view , .btn-icon-del {
+    background-color: #007bff;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; 
+}
+
+
+.btn-icon-del {
+    background-color: #dc3545;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    border-radius: 8px;
+}
+
+.btn-icon-view:hover {
+    background-color: #4099f8;
+    color: white;
+}
+
+.btn-icon-delete:hover {
+    background-color: #db636f;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

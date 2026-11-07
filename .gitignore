@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# environment variables (keep secrets out of git)
+.env
+.env.*
+!.env.example
+
+# build output
+dist/
+build/
+
+# logs & OS files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
